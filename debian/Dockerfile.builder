@@ -11,6 +11,7 @@ FROM debian:12
 
 ARG USER=tilted
 ENV DEBIAN_FRONTEND=noninteractive
+ENV XMAKE_ROOT=y
 
 RUN adduser --disabled-password --gecos "" $USER \
   && apt update \
@@ -25,6 +26,8 @@ RUN adduser --disabled-password --gecos "" $USER \
       unzip \
       gcc-12 \
       g++-12 \
+      pkg-config \
+      libssl-dev \
   && rm -rf /var/lib/apt/lists/*
 
 USER $USER
