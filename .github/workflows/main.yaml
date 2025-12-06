@@ -40,6 +40,12 @@ jobs:
         uses: docker/setup-buildx-action@v3
         if: ${{ env.GIT_TAG != env.DOCKER_TAG}}
 
+      - name: set lower case owner name
+        run: |
+          echo "GITHUB_REPO_OWNER_LC=${GITHUB_REPO_OWNER,,}" >>${GITHUB_ENV}
+        env:
+          GITHUB_REPO_OWNER: '${{ github.repository_owner }}'
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         if: ${{ env.GIT_TAG != env.DOCKER_TAG}}
@@ -52,7 +58,7 @@ jobs:
         if: ${{ env.GIT_TAG != env.DOCKER_TAG}}
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner | lower }}
+          username: ${{ env.GITHUB_REPO_OWNER_LC }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # Alpine - server
@@ -76,11 +82,11 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-latest
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-server:latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-server:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server-latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server-${{ env.GIT_TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-server:latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-server:${{ env.GIT_TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server-latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server-${{ env.GIT_TAG }}
           build-args: |
             BRANCH=${{ env.GIT_TAG_V }}
 
@@ -105,11 +111,11 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-latest
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-pterodactyl:latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl-latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}
           build-args: |
             VERSION=${{ env.GIT_TAG }}
 
@@ -133,11 +139,11 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-latest-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:server-${{ env.GIT_TAG }}-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-server:latest-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-server:${{ env.GIT_TAG }}-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server-latest-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:server-${{ env.GIT_TAG }}-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-server:latest-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-server:${{ env.GIT_TAG }}-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server-latest-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:server-${{ env.GIT_TAG }}-debian
           build-args: |
             BRANCH=v${{ env.GIT_TAG_V }}
 
@@ -161,10 +167,10 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-latest-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:latest-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-latest-debian
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-pterodactyl:latest-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-pterodactyl:${{ env.GIT_TAG }}-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl-latest-debian
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:pterodactyl-${{ env.GIT_TAG }}-debian
           build-args: |
             VERSION=${{ env.GIT_TAG }}

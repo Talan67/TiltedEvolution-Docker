@@ -22,6 +22,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: set lower case owner name
+        run: |
+          echo "GITHUB_REPO_OWNER_LC=${GITHUB_REPO_OWNER,,}" >>${GITHUB_ENV}
+        env:
+          GITHUB_REPO_OWNER: '${{ github.repository_owner }}'
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -32,7 +38,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner | lower }}
+          username: ${{ env.GITHUB_REPO_OWNER_LC }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push - builder [alpine]
@@ -54,8 +60,8 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-latest
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-builder:latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-builder:${{ env.TAG }}
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder-latest
-            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder-${{ env.TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-builder:latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution-builder:${{ env.TAG }}
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:builder
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:builder-latest
+            ghcr.io/${{ env.GITHUB_REPO_OWNER_LC }}/tiltedevolution:builder-${{ env.TAG }}
