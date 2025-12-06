@@ -52,9 +52,9 @@ Images starting with `1.6.8` should be available on Docker Hub and ghcr.io. They
 
 <br />
 
-- [![Docker Hub](https://img.shields.io/badge/DockerHub-builder-blue?logo=docker&style=plastic)](https://hub.docker.com/r/Talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/Talan67/tiltedevolution/builder-latest?logo=docker&style=plastic)
-- [![Docker Hub](https://img.shields.io/badge/DockerHub-server-blue?logo=docker&style=plastic)](https://hub.docker.com/r/Talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/Talan67/tiltedevolution/server-latest?logo=docker&style=plastic)
-- [![Docker Hub](https://img.shields.io/badge/DockerHub-pterodactyl-blue?logo=docker&style=plastic)](https://hub.docker.com/r/Talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/Talan67/tiltedevolution/pterodactyl-latest?logo=docker&style=plastic)
+- [![Docker Hub](https://img.shields.io/badge/DockerHub-builder-blue?logo=docker&style=plastic)](https://hub.docker.com/r/talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/talan67/tiltedevolution/builder-latest?logo=docker&style=plastic)
+- [![Docker Hub](https://img.shields.io/badge/DockerHub-server-blue?logo=docker&style=plastic)](https://hub.docker.com/r/talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/talan67/tiltedevolution/server-latest?logo=docker&style=plastic)
+- [![Docker Hub](https://img.shields.io/badge/DockerHub-pterodactyl-blue?logo=docker&style=plastic)](https://hub.docker.com/r/talan67/tiltedevolution) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/talan67/tiltedevolution/pterodactyl-latest?logo=docker&style=plastic)
 
 ## Building
   - `docker build -t tiltedevolution:builder -f Dockerfile.builder .`
@@ -80,7 +80,7 @@ docker run -d -it --name skyrimserver -p 10578:10578/udp \
   -v /opt/docker/skyrimserver/config:/home/tilted/config \
   -v /opt/docker/skyrimserver/Data:/home/tilted/Data \
   -v /opt/docker/skyrimserver/logs:/home/tilted/logs \
-  Talan67/tiltedevolution:server
+  talan67/tiltedevolution:server
 ```
 
 ## Pterodactyl
