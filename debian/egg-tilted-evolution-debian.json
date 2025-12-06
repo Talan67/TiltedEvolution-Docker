@@ -10,8 +10,9 @@
   "description": "Custom versions of the Tilted Evolution \/ Skyrim Together Reborn Docker images",
   "features": null,
   "docker_images": {
-      "ad3m3r5\/tiltedevolution:pterodactyl-debian": "ad3m3r5\/tiltedevolution:pterodactyl-debian",
-      "ad3m3r5\/tiltedevolution:pterodactyl-latest-debian": "ad3m3r5\/tiltedevolution:pterodactyl-latest-debian",
+      "Talan67\/tiltedevolution:pterodactyl-debian": "Talan67\/tiltedevolution:pterodactyl-debian",
+      "Talan67\/tiltedevolution:pterodactyl-latest-debian": "Talan67\/tiltedevolution:pterodactyl-latest-debian",
+      "Talan67\/tiltedevolution:pterodactyl-1.8.0-debian": "Talan67\/tiltedevolution:pterodactyl-1.8.0-debian",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.7.1-debian": "ad3m3r5\/tiltedevolution:pterodactyl-1.7.1-debian",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.7.0-debian": "ad3m3r5\/tiltedevolution:pterodactyl-1.7.0-debian",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.6.8-debian": "ad3m3r5\/tiltedevolution:pterodactyl-1.6.8-debian"

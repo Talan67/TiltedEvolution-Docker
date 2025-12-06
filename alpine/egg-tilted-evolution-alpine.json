@@ -10,8 +10,9 @@
   "description": "Custom versions of the Tilted Evolution \/ Skyrim Together Reborn Docker images",
   "features": null,
   "docker_images": {
-      "ad3m3r5\/tiltedevolution:pterodactyl": "ad3m3r5\/tiltedevolution:pterodactyl",
-      "ad3m3r5\/tiltedevolution:pterodactyl-latest": "ad3m3r5\/tiltedevolution:pterodactyl-latest",
+      "Talan67\/tiltedevolution:pterodactyl": "Talan67\/tiltedevolution:pterodactyl",
+      "Talan67\/tiltedevolution:pterodactyl-latest": "Talan67\/tiltedevolution:pterodactyl-latest",
+      "Talan67\/tiltedevolution:pterodactyl-1.8.0": "Talan67\/tiltedevolution:pterodactyl-1.8.0",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.7.1": "ad3m3r5\/tiltedevolution:pterodactyl-1.7.1",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.7.0": "ad3m3r5\/tiltedevolution:pterodactyl-1.7.0",
       "ad3m3r5\/tiltedevolution:pterodactyl-1.6.8": "ad3m3r5\/tiltedevolution:pterodactyl-1.6.8",
