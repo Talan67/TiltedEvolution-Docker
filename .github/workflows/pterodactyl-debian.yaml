@@ -32,7 +32,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: ${{ github.repository_owner | lower }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push - pterodactyl [debian]
@@ -54,10 +54,10 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-latest-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:pterodactyl-${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-pterodactyl:latest-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-pterodactyl:${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl-latest-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:pterodactyl-${{ env.TAG }}-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:latest-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-pterodactyl:${{ env.TAG }}-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-latest-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:pterodactyl-${{ env.TAG }}-debian
           build-args: |
             VERSION=${{ env.TAG }}

@@ -32,7 +32,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: ${{ github.repository_owner | lower }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push - builder [debian]
@@ -54,8 +54,8 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-latest-debian
             ${{ vars.DOCKERHUB_USERNAME }}/tiltedevolution:builder-${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-builder:latest-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution-builder:${{ env.TAG }}-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder-latest-debian
-            ghcr.io/${{ github.repository_owner }}/tiltedevolution:builder-${{ env.TAG }}-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-builder:latest-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution-builder:${{ env.TAG }}-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder-latest-debian
+            ghcr.io/${{ github.repository_owner | lower }}/tiltedevolution:builder-${{ env.TAG }}-debian
